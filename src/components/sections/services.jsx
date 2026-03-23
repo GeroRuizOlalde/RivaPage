@@ -1,160 +1,186 @@
-import React from 'react';
 import { motion } from 'framer-motion';
-import { ArrowUpRight, Code, ShoppingCart, Smartphone, Globe } from 'lucide-react';
-import { Link } from 'react-router-dom'; // 👈 IMPORTANTE: Para navegar sin recargar
+import { ArrowUpRight, Smartphone, Globe, ShoppingCart, Code, Star } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const services = [
   {
+    icon: Smartphone,
+    title: "Landing Page de Venta",
+    ideal: "Ideal para empezar",
+    description: "Una sola página con un solo objetivo: que te contacten. Estructura persuasiva, velocidad extrema y optimizada para campañas de Ads.",
+    results: "Nuestros clientes reportan hasta 3x más consultas después de lanzar su landing.",
+    includes: ["Diseño UX/UI a medida", "Copywriting persuasivo", "Integración WhatsApp + formularios", "Optimización para Google Ads / Meta"],
+    timeline: "7 a 10 días hábiles",
+    featured: true,
+    link: "/servicios/landing-pages",
+  },
+  {
     icon: Globe,
-    title: "Sitios Web Corporativos",
-    description: "Tu carta de presentación digital. Diseñamos sitios institucionales que transmiten autoridad y confianza.",
-    tags: ["Wordpress", "React", "Diseño UI/UX"],
-    link: "/servicios/corporativo" // 👈 Ruta interna
+    title: "Sitio Web Corporativo",
+    ideal: "Para empresas establecidas",
+    description: "Tu oficina digital completa. Múltiples secciones, blog, casos de éxito y todo lo que necesitás para transmitir autoridad y captar clientes grandes.",
+    results: "GPI Consultores elevó su percepción corporativa y empezó a recibir consultas de inversores.",
+    includes: ["Arquitectura de información estratégica", "Secciones: Inicio, Servicios, Nosotros, Blog", "SEO técnico incluido", "Panel de administración simple"],
+    timeline: "3 a 5 semanas",
+    featured: false,
+    link: "/servicios/corporativo",
   },
   {
     icon: ShoppingCart,
-    title: "E-commerce & Tiendas",
-    description: "Transformamos visitantes en compradores. Tiendas online optimizadas para la conversión.",
-    tags: ["Shopify", "WooCommerce", "Pagos Locales"],
-    link: "/servicios/ecommerce"
-  },
-  {
-    icon: Smartphone,
-    title: "Landing Pages de Venta",
-    description: "Páginas diseñadas con un solo objetivo: vender. Estructuras persuasivas y velocidad extrema.",
-    tags: ["Alta Conversión", "A/B Testing", "Pixel de Meta"],
-    link: "/servicios/landing-pages"
+    title: "Tienda Online / E-commerce",
+    ideal: "Para vender productos 24/7",
+    description: "Tu tienda abierta siempre. Gestión de stock, pagos con Mercado Pago y tarjetas, sin comisiones por venta. Vos controlás todo.",
+    results: "Sin comisiones por transacción. Tu tienda, tus reglas, tus márgenes.",
+    includes: ["Carrito optimizado para conversión", "Mercado Pago + tarjetas integrado", "Panel de gestión de productos", "SEO para fichas de producto"],
+    timeline: "4 a 6 semanas",
+    featured: false,
+    link: "/servicios/ecommerce",
   },
   {
     icon: Code,
     title: "Desarrollo a Medida",
-    description: "Soluciones web complejas, plataformas SaaS y herramientas internas para tu empresa.",
-    tags: ["React / Node.js", "APIs REST", "Bases de Datos"],
-    link: "https://wa.me/5492646620024?text=Hola,%20necesito%20un%20desarrollo%20a%20medida." // 👈 Este sigue yendo a WhatsApp
-  }
+    ideal: "Para necesidades complejas",
+    description: "Plataformas SaaS, herramientas internas, APIs y sistemas. Cuando tu negocio necesita algo que no existe en el mercado.",
+    results: "Rivapp, nuestra plataforma propia para gastronomía, nació de esta línea de servicio.",
+    includes: ["React / Next.js / Node.js", "APIs REST y bases de datos", "Arquitectura escalable", "Documentación técnica"],
+    timeline: "A definir según alcance",
+    featured: false,
+    link: `https://wa.me/5492646620024?text=${encodeURIComponent("Hola, necesito un desarrollo a medida para mi negocio.")}`,
+  },
 ];
 
 export default function Services() {
   return (
     <section id="servicios" className="relative bg-[#050505] py-24 lg:py-32">
-      <div className="w-full max-w-[1400px] mx-auto px-6 md:px-12 lg:px-20">
-        <div className="flex flex-col lg:flex-row gap-12 lg:gap-24 items-start">
-          
-          {/* === COLUMNA IZQUIERDA (STICKY) === */}
-          <div className="hidden lg:block w-1/2 sticky top-32 h-[600px]">
-            <div className="w-full h-full rounded-[32px] border border-white/10 bg-[#0a0a0a] relative overflow-hidden shadow-2xl group">
-                <div className="absolute inset-0">
-                    <img 
-                      src="/images/hero.webp" 
-                      alt="Desarrollo Web Servicios" 
-                      className="w-full h-full object-cover" 
-                      loading="lazy"
-                    />
-                    <div className="absolute inset-0 bg-[#050505]/50 mix-blend-multiply"></div>
-                    <div className="absolute inset-0 bg-gradient-to-br from-neutral-900/80 via-transparent to-primary/5"></div>
-                </div>
+      <div className="w-full max-w-[1200px] mx-auto px-6">
 
-                <div className="absolute bottom-8 left-8 z-20">
-                    <span className="px-3 py-1 bg-white/10 backdrop-blur-md border border-white/10 rounded-full text-[10px] font-bold text-white uppercase tracking-wider flex items-center gap-2 shadow-lg">
-                        <Globe size={12} className="text-primary" /> Showcase
-                    </span>
-                </div>
-            </div>
-          </div>
+        {/* Header */}
+        <div className="text-center mb-16">
+          <motion.span
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-primary/5 text-[11px] font-bold tracking-widest text-primary uppercase mb-6"
+          >
+            Servicios
+          </motion.span>
 
-          {/* === COLUMNA DERECHA === */}
-          <div className="w-full lg:w-1/2 flex flex-col pt-4">
-            <div className="mb-16">
-                <motion.span 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-primary/20 bg-white/5 backdrop-blur-sm mb-6"
-                >
-                    <span className="w-1.5 h-1.5 rounded-full bg-white shadow-[0_0_5px_rgba(255,255,255,0.5)]"></span>
-                    <span className="text-[11px] font-bold tracking-widest text-neutral-400 uppercase">Servicios</span>
-                </motion.span>
-                
-                <motion.h2 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.1 }}
-                    className="text-4xl md:text-5xl font-sans font-bold tracking-tighter text-white leading-[1.1]"
-                >
-                    Soluciones digitales <br />
-                    <span className="text-neutral-500">a medida de tu negocio.</span>
-                </motion.h2>
-                <motion.p 
-                    initial={{ opacity: 0, y: 10 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: 0.2 }}
-                    className="mt-6 text-lg text-neutral-400 leading-relaxed max-w-md"
-                >
-                    Creamos ecosistemas digitales pensados para escalar y diferenciarte de la competencia.
-                </motion.p>
-            </div>
-
-            <div className="flex flex-col gap-6 pb-24"> 
-                {services.map((service, index) => {
-                    // Lógica: Si el link empieza con "/", es interno (Link). Si no, es externo (a).
-                    const isInternal = service.link.startsWith('/');
-                    
-                    const CardContent = (
-                        <>
-                            <div className="absolute inset-0 bg-gradient-to-r from-primary/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl pointer-events-none"></div>
-                            <div className="relative z-10 flex flex-col sm:flex-row gap-6 items-start">
-                                <div className="w-12 h-12 rounded-2xl bg-white/5 border border-white/5 flex items-center justify-center shrink-0 group-hover:scale-110 transition-transform duration-300 text-white group-hover:text-primary">
-                                    <service.icon size={24} />
-                                </div>
-                                <div className="flex-1">
-                                    <div className="flex items-center justify-between mb-2">
-                                        <h3 className="text-xl font-bold text-white font-sans">{service.title}</h3>
-                                        <ArrowUpRight className="w-5 h-5 text-neutral-600 group-hover:text-primary group-hover:translate-x-1 group-hover:-translate-y-1 transition-all" />
-                                    </div>
-                                    <p className="text-neutral-400 text-sm leading-relaxed mb-4">{service.description}</p>
-                                    <div className="flex flex-wrap gap-2">
-                                        {service.tags.map((tag, i) => (
-                                            <span key={i} className="text-[10px] font-medium text-neutral-500 bg-white/5 px-2 py-1 rounded-md border border-white/5">{tag}</span>
-                                        ))}
-                                    </div>
-                                </div>
-                            </div>
-                        </>
-                    );
-
-                    return (
-                        <motion.div
-                            key={index}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true, margin: "-50px" }}
-                            transition={{ delay: index * 0.1 }}
-                        >
-                            {isInternal ? (
-                                <Link 
-                                    to={service.link}
-                                    className="block group relative p-8 rounded-3xl bg-[#0a0a0a] border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-[#0f0f0f]"
-                                >
-                                    {CardContent}
-                                </Link>
-                            ) : (
-                                <a 
-                                    href={service.link}
-                                    target="_blank"
-                                    rel="noopener noreferrer"
-                                    className="block group relative p-8 rounded-3xl bg-[#0a0a0a] border border-white/10 hover:border-white/20 transition-all duration-300 hover:bg-[#0f0f0f]"
-                                >
-                                    {CardContent}
-                                </a>
-                            )}
-                        </motion.div>
-                    );
-                })}
-            </div>
-          </div>
+          <motion.h2
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.1 }}
+            className="text-3xl md:text-5xl font-sans font-bold tracking-tighter text-white leading-[1.1] mb-4"
+          >
+            ¿Qué necesita tu negocio <span className="text-neutral-500">hoy?</span>
+          </motion.h2>
+          <motion.p
+            initial={{ opacity: 0, y: 10 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.2 }}
+            className="text-lg text-neutral-400 max-w-2xl mx-auto"
+          >
+            Cada proyecto es distinto. Elegí el servicio que mejor se adapte a tu situación actual y presupuesto.
+          </motion.p>
         </div>
+
+        {/* Service cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {services.map((service, index) => {
+            const isInternal = service.link.startsWith('/');
+
+            const cardContent = (
+              <div className={`group relative p-8 rounded-2xl border transition-all duration-300 h-full flex flex-col ${
+                service.featured
+                  ? 'bg-[#0a0a0a] border-primary/30 hover:border-primary/50'
+                  : 'bg-[#0a0a0a] border-white/10 hover:border-white/20'
+              }`}>
+                {service.featured && (
+                  <div className="absolute top-4 right-4 flex items-center gap-1.5 px-3 py-1 bg-primary/10 border border-primary/20 rounded-full">
+                    <Star size={10} className="text-primary fill-primary" />
+                    <span className="text-[10px] font-bold text-primary">MÁS ELEGIDO</span>
+                  </div>
+                )}
+
+                <div className="flex items-start gap-4 mb-6">
+                  <div className="w-12 h-12 rounded-xl bg-white/5 border border-white/5 flex items-center justify-center shrink-0 group-hover:text-primary transition-colors text-white">
+                    <service.icon size={24} />
+                  </div>
+                  <div>
+                    <span className="text-[10px] font-bold text-neutral-500 uppercase tracking-wider">{service.ideal}</span>
+                    <h3 className="text-xl font-bold text-white font-sans">{service.title}</h3>
+                  </div>
+                </div>
+
+                <p className="text-neutral-400 text-sm leading-relaxed mb-5">{service.description}</p>
+
+                {/* Resultado real */}
+                <div className="p-4 rounded-xl bg-primary/5 border border-primary/10 mb-6">
+                  <p className="text-xs text-primary/80 leading-relaxed">
+                    <strong className="text-primary">Resultado:</strong> {service.results}
+                  </p>
+                </div>
+
+                {/* Qué incluye */}
+                <div className="mb-6 flex-1">
+                  <span className="text-[10px] font-bold text-neutral-600 uppercase tracking-wider block mb-3">Incluye</span>
+                  <ul className="space-y-2">
+                    {service.includes.map((item, i) => (
+                      <li key={i} className="flex items-start gap-2 text-sm text-neutral-400">
+                        <span className="w-1 h-1 rounded-full bg-primary mt-2 shrink-0"></span>
+                        {item}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Footer */}
+                <div className="flex items-center justify-between pt-4 border-t border-white/5 mt-auto">
+                  <span className="text-xs text-neutral-500">
+                    Plazo: <strong className="text-neutral-300">{service.timeline}</strong>
+                  </span>
+                  <span className="flex items-center gap-1 text-sm font-bold text-white group-hover:text-primary transition-colors">
+                    Ver más <ArrowUpRight size={14} className="group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                  </span>
+                </div>
+              </div>
+            );
+
+            return (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true, margin: "-50px" }}
+                transition={{ delay: index * 0.1 }}
+              >
+                {isInternal ? (
+                  <Link to={service.link} className="block h-full">{cardContent}</Link>
+                ) : (
+                  <a href={service.link} target="_blank" rel="noopener noreferrer" className="block h-full">{cardContent}</a>
+                )}
+              </motion.div>
+            );
+          })}
+        </div>
+
+        {/* CTA inferior */}
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+          className="text-center mt-12"
+        >
+          <p className="text-neutral-500 text-sm mb-4">¿No sabés cuál elegir?</p>
+          <Link
+            to="/calculadora"
+            className="inline-flex items-center gap-2 px-6 py-3 bg-white/5 border border-white/10 text-white font-bold text-sm rounded-full hover:bg-white/10 hover:border-primary/30 transition-all"
+          >
+            Usá nuestro cotizador online <ArrowUpRight size={14} />
+          </Link>
+        </motion.div>
+
       </div>
     </section>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ArrowRight, Check, RefreshCw, Smartphone, Globe, ShoppingCart } from 'lucide-react';
 import NoiseOverlay from '../components/ui/NoiseOverlay';

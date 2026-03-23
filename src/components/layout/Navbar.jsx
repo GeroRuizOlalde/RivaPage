@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, MessageCircle, Rocket, Calculator } from 'lucide-react';
 import { Link, useLocation, useNavigate } from 'react-router-dom'; // 👈 Importamos hooks del router
 
 const navLinks = [
-  { name: "Beneficios", href: "#beneficios" },
   { name: "Servicios", href: "#servicios" },
-  { name: "Experiencia", href: "#experiencia" },
+  { name: "Casos", href: "#casos" },
   { name: "Proceso", href: "#proceso" },
   { name: "FAQ", href: "#faq" },
 ];
@@ -61,7 +60,7 @@ export default function Navbar() {
           
           {/* 1. LOGO (Usa Link para no recargar la página) */}
           <Link to="/" className="relative z-[110] block flex-shrink-0">
-            <img src="/images/logoriva.webp" alt="Riva Estudio" className="h-8 mb-6 w-auto" width="180" height="56" />
+            <img src="/images/logoriva.webp" alt="Riva Estudio" className="h-8 w-auto" width="180" height="56" />
           </Link>
 
           {/* 2. MENÚ ESCRITORIO */}

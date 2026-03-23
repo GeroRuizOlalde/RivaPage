@@ -1,4 +1,3 @@
-import React from 'react';
 import { motion } from 'framer-motion';
 import { Check, ArrowRight, MessageCircle } from 'lucide-react';
 import NoiseOverlay from '../components/ui/NoiseOverlay';

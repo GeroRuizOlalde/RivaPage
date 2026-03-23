@@ -1,5 +1,3 @@
-import React from 'react';
-
 export default function NoiseOverlay({ opacity = 0.2 }) {
   return (
     <div 
